@@ -255,6 +255,7 @@ function _fit!(o::Extrema, y)
     end
     y == o.min && (o.nmin += 1)
     y == o.max && (o.nmax += 1)
+    return o
 end
 function _fit!(o::Extrema, y, n)
     (o.n += n) == n && (o.min = o.max = y)
@@ -267,6 +268,7 @@ function _fit!(o::Extrema, y, n)
     end
     y == o.min && (o.nmin += n)
     y == o.max && (o.nmax += n)
+    return o
 end
 function _merge!(a::Extrema, b::Extrema)
     if a.min == b.min
